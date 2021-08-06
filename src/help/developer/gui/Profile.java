@@ -32,7 +32,7 @@ public class Profile extends JFrame implements Runnable{
 
 	/***##Constructor##***/
     public Profile() {
-    	this.date="__-__-20__";
+    	this.date="07-Jun-2014";
     	numberOfPhotos=7;
     	isStanding=false;
     	position=0;
@@ -77,25 +77,25 @@ public class Profile extends JFrame implements Runnable{
         jLabelMain.setLayout(null);
 
         jLabelName.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelName.setText("Minhas Kamal");
-        jLabelName.setToolTipText("Name");
+        jLabelName.setText("Minhas Kamal ");
+        jLabelName.setToolTipText("Nome");
         jLabelName.setBounds(20, 60, 120, 20);
 
         jLabelInstitute.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelInstitute.setText("Institute of Information Technology, DU");
-        jLabelInstitute.setToolTipText("Educational Institute");
+        jLabelInstitute.setText("Institute of Information Technology, DU ");
+        jLabelInstitute.setToolTipText("Graduação");
         jLabelInstitute.setBounds(20, 90, 290, 20);
 
         jLabelDate.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelDate.setText("Date: " + date);
-        jLabelDate.setToolTipText("Date of Completion");
+        jLabelDate.setText("Data: " + date);
+        jLabelDate.setToolTipText("Data de Conclusão");
         jLabelDate.setBounds(20, 120, 200, 20);
 
         jLabelEmail.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
         jLabelEmail.setText("Email: minhaskamal024@gmail.com");
         jLabelEmail.setBounds(20, 150, 260, 20);
 
-        jButtonPhoto.setToolTipText("Click to pause");
+        jButtonPhoto.setToolTipText("Click para pausar");
         jButtonPhoto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonPhoto.setLayout(null);
         jButtonPhoto.setBounds(328, 15, 180, 195);
@@ -121,12 +121,12 @@ public class Profile extends JFrame implements Runnable{
         jTextAreaInformation.setEditable(false);
         jTextAreaInformation.setBackground(new Color(0,0,0,0));
         jTextAreaInformation.setColumns(20);
-        jTextAreaInformation.setFont(new Font("Times New Roman", 0, 13)); // NOI18N
+        jTextAreaInformation.setFont(new Font("Lucida Bright", 0, 10)); // NOI18N
         jTextAreaInformation.setRows(5);
-        jTextAreaInformation.setText("   Hi, its Minhas Kamal, my home town is Jhenaidah. I started my study life by attending an " +
-        		"\n   Arbi-Medium  School (like Madrasa) named  Al-Faruq  Academy &  continued there upto " +
-        		"\n   class 7. I completed my SSC from Kanchan Nagar Model High School & College and HSC " +
-        		"\n   from  Jhenaidah Govt. K.C. College. Now I am in  BSSE  course at  IIT, DU. ");
+        jTextAreaInformation.setText("   Olá, é Minhas Kamal, minha cidade natal é Jhenaidah. Comecei minha vida de estudo na " +
+        		"\n   Arbi-Medium School (como Madrasa) chamada Al-Faruq Academy e continuei lá até " +
+        		"\n   a classe 7. Concluí meu SSC na Kanchan Nagar Model High School & College e HSC " +
+        		"\n   da Jhenaidah Govt. K.C. College. Agora estou no curso BSSE no IIT, DU. ");
         jTextAreaInformation.setToolTipText("My Study Life");
        //jTextAreaInformation.setBorder((new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         jTextAreaInformation.setBounds(10, 225, 500, 75);
@@ -149,7 +149,7 @@ public class Profile extends JFrame implements Runnable{
 		//Setting criteria of the Frame//
         setIconImage(new ImageIcon(getClass().getResource("/help/developer/pictures/IconDeveloper.png")).getImage());
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        setTitle("Developer's Profile");
+        setTitle("Perfil do Desenvolvedor");
         setLayout(null);
         setSize(525, 340);
         setLocation(250, 200);

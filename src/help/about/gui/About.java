@@ -27,19 +27,19 @@ public class About extends JFrame {
 	/***##Constructor##***/
 	public About() {
 		//write your message here
-		data="@ This program is open for all. One can modify or change criterias of this program. \n\n" +
-				"It took about one month to develop the core part of the game. The later extentions are created " +
-				"in defferent phases seperately. It has become almost 6 months I started this project. " +
-				"I am working continuously to improve its functionality. As a result " +
-				"though I started it with a small number of criterias but at last it grew up as " +
-				"a complex program. The program contains 13 classes, " +
-				"about 2800 lines of code, 204 images & 12 sounds. Now this program is in its sixth stage " +
-				"of development. Now I am working with three other projects which are even larger." +
-				"\n\nI am really thank full to my teachers, friends and also to my cousine for encouraging and " +
-				"advising me." +
-				"\n\nOne may not find the program too great but as a java student & naive programmer " +
-				"may be this was the best I could do with my limited knowledge. \n\n**Thanks**\n\n" +
-				"                                                                                   -Developer\n" +
+		data="@ Esse programa está aberto a todos. Podendo ser modificado e alterado. \n\n" +
+				"Demorou cerca de um mês para desenvolver a parte central do jogo. As extensões " +
+				"foram criadas separadamente em fases. Já passaram quase 6 meses que comecei este projeto. " +
+				"estou trabalhando continuamente para melhorar suas funcionalidades. Como resultado " +
+				"eu tinha começado com um pequeno projeto e finalmente cresceu como " +
+				"um programa complexo. O programa contém 13 classes, " +
+				"cerca de 2.800 linhas de código, 204 imagens e 12 sons. Agora, esse programa está em seu sexto estágio " +
+				"de desenvolvimento. Agora estou trabalhando com três outros projetos maiores." +
+				"\n\nAgradeço muito aos meus professores, amigos e também a minha prima por encorajar e " +
+				"aconselhar-me." +
+				"\n\nAlguém pode não acha o programa muito bom, mas como um estudante de Java e um programador ingênuo " +
+				"pode ser que isso tenha sido o melhor que pude fazer com meu conhecimento limitado. \n\n**Obrigado**\n\n" +
+				"                                                                                   -Desenvolvedor\n" +
 				"                                                                                   7-Jun-2014";
 
 		
@@ -75,10 +75,10 @@ public class About extends JFrame {
 		jScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		jTextAreaNotification.setText(data);
-        jTextAreaNotification.setForeground(new java.awt.Color(102, 0, 106));
-        jTextAreaNotification.setSelectedTextColor(new java.awt.Color(255, 170, 255));
+        jTextAreaNotification.setForeground(new java.awt.Color(1, 1, 1));
+        jTextAreaNotification.setSelectedTextColor(new java.awt.Color(1, 1, 1));
         jTextAreaNotification.setSelectionColor(new java.awt.Color(80, 0, 80));
-        jTextAreaNotification.setFont(new java.awt.Font("Gabriola", 0, 19)); // NOI18N
+        jTextAreaNotification.setFont(new java.awt.Font("Lucida Bright", 0, 13)); // NOI18N
 //        jTextAreaNotification.setEditable(false);
         jTextAreaNotification.setCaretPosition(0);
         jTextAreaNotification.setLineWrap(true);
@@ -112,7 +112,7 @@ public class About extends JFrame {
 		setIconImage(new ImageIcon(getClass().getResource("/help/about/pictures/IconAbout.png")).getImage());
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(200, 150, 375, 450);
-		setTitle("About");
+		setTitle("Sobre");
 		setLayout(null);
 		add(jLabelMain);
 		setResizable(false);

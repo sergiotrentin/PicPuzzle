@@ -56,7 +56,7 @@ public class HighScore extends JFrame{
 		///****criteria of the frame****///
 		setIconImage(new ImageIcon(getClass().getResource("/help/highScore/pictures/IconHighScore.png")).getImage());
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("High Score");
+        setTitle("Melhores Pontuações");
         setResizable(false);
         setBounds(500, 145, 350, 450);
         setLayout(null);
@@ -67,25 +67,25 @@ public class HighScore extends JFrame{
 		/**
          * setting the position and size -> (x, y, l, h) /////////////////////////////////////////////////////////////////////
         **/
-        jLabelNote.setForeground(new java.awt.Color(102, 51, 0));
-        jLabelNote.setFont(new java.awt.Font("Lucida Calligraphy", 0, 18)); // NOI18N
+        jLabelNote.setForeground(new java.awt.Color(1, 1, 1));
+        jLabelNote.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
         jLabelNote.setText(" Top 5 ");
         jLabelNote.setBounds(20, 10, 200, 40);
 
         jTextPaneInfo.setEditable(false);
         jTextPaneInfo.setText(info);
-        jTextPaneInfo.setFont(new java.awt.Font("Times new Roman", 0, 15));
-        jTextPaneInfo.setForeground(new java.awt.Color(150, 0, 150));
+        jTextPaneInfo.setFont(new java.awt.Font("Lucida Bright", 0, 15));
+        jTextPaneInfo.setForeground(new java.awt.Color(1, 1, 1));
         jTextPaneInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextPaneInfo.setSelectionColor(new java.awt.Color(250, 80, 0));
-        jTextPaneInfo.setSelectedTextColor(new java.awt.Color(202, 255, 150));
+        jTextPaneInfo.setSelectedTextColor(new java.awt.Color(1, 1, 1));
         jTextPaneInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jTextPaneInfo.setBounds(20, 50, 305, 310);
         
         
         jButtonOK.setText("OK");
         jButtonOK.setBounds(270, 380, 60, 30);
-        jButtonOK.setBackground(new java.awt.Color(220, 180, 180));
+        jButtonOK.setBackground(new java.awt.Color(212, 227, 250));
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOKActionPerformed(evt);
@@ -105,7 +105,7 @@ public class HighScore extends JFrame{
         /**
          * The main panel declaration and adding characteristics//////////////////////////////////////////////////////////////
         **/
-        jPanelMain.setBackground(new java.awt.Color(230, 200, 255));
+        jPanelMain.setBackground(new java.awt.Color(240, 240, 240));
         jPanelMain.setBounds(0, 0, 350, 450);
         jPanelMain.setLayout(null);
         

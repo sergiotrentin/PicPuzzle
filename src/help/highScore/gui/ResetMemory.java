@@ -52,12 +52,12 @@ public class ResetMemory extends JDialog {
 		/**
 		 * Setting position & size
 		**/
-		jLabelMessage.setText("All records will be gone!!!");
-		jLabelMessage.setFont(new java.awt.Font("Lucida Calligraphy", 0, 17));
-		jLabelMessage.setForeground(new java.awt.Color(102, 51, 0));
+		jLabelMessage.setText("Deseja reiniciar todos os registros?");
+		jLabelMessage.setFont(new java.awt.Font("Lucida Bright", 0, 15));
+		jLabelMessage.setForeground(new java.awt.Color(1,1,1));
 		jLabelMessage.setBounds(15, 40, 270, 35);
 		
-		jButtonOK.setText("OK");
+		jButtonOK.setText("Sim");
 		jButtonOK.setBounds(190, 125, 65, 25);
 		jButtonOK.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,12 +72,13 @@ public class ResetMemory extends JDialog {
 	        }
 	    });
 		
-		jButtonCancel.setText("Cancel");
+		jButtonCancel.setText("Não");
 		jButtonCancel.setBounds(260, 125, 65, 25);
 		jButtonCancel.setBorder(null);
 		jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		jButtonCancelActionPerformed(evt);
+        		dispose();
+        		//jButtonCancelActionPerformed(evt);
         	}
         });
 		
@@ -91,11 +92,11 @@ public class ResetMemory extends JDialog {
 		add(jPanelMain);
 		setModal(true);
 		setResizable(false);
-		setTitle("Reset Memory");
+		setTitle("Reiniciar Memória");
         /**
          * The main panel declaration and adding characteristics//////////////////////////////////////////////////////////////
         **/
-        jPanelMain.setBackground(new java.awt.Color(255, 205, 220));
+        jPanelMain.setBackground(new java.awt.Color(240,240,240));
         jPanelMain.setBounds(0, 0, 350, 200);
         jPanelMain.setLayout(null);
         
@@ -110,38 +111,23 @@ public class ResetMemory extends JDialog {
 	 * Actions//////////////////////////////////////////////////////////////
 	**/
 	private void jButtonOKActionPerformed(ActionEvent evt){
-		if(i==1){
-			jLabelMessage.setFont(new java.awt.Font("Lucida Calligraphy", 1, 17));
-			jLabelMessage.setForeground(new java.awt.Color(255, 90, 90));
-			jPanelMain.setBackground(new java.awt.Color(255, 255, 230));
-		}
-		
-		if(i==2){
-			jLabelMessage.setFont(new java.awt.Font("Lucida Calligraphy", 1, 18));
-			jLabelMessage.setForeground(new java.awt.Color(255, 0, 0));
-			jPanelMain.setBackground(new java.awt.Color(255, 255, 120));
-		}
-		
-		if(i==3) {
-
+		if (i==1) {
 			new FileInputOutput().fileWriter("PicturePuzzle/HighScore.png", new help.highScore.operation.FileIOOperation().defaultInfo());
 			
-			jPanelMain.setBackground(new java.awt.Color(225, 255, 220));
-			jLabelMessage.setForeground(new java.awt.Color(60, 255, 60));
-			jLabelMessage.setFont(new java.awt.Font("Lucida Calligraphy", 1, 26));
-			jLabelMessage.setText(" All Cleared ...");	
+			jPanelMain.setBackground(new java.awt.Color(240,240,240));
+			jLabelMessage.setForeground(new java.awt.Color(0, 0, 0));
+			jLabelMessage.setFont(new java.awt.Font("Lucida Bright", 0, 15));
+			jLabelMessage.setText("Registros Reiniciados!");	
 			
-			new SoundPlayer().playSound("sound/sounds/MemoryCleared.wav");
+			//new SoundPlayer().playSound("sound/sounds/MemoryCleared.wav");
 			
 			jButtonCancel.setVisible(false);
-		}
-		
-		if(i>3){
+		}else {
 			dispose();
 		}
-		
 		i++;
 	}
+	
 	private void jButtonCancelActionPerformed(ActionEvent evt){
 		dispose();
 	}

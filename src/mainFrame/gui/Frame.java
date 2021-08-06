@@ -150,20 +150,20 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelMain.setLayout(null);
         
 		//menus
-		jMenuOption.setText("Option   ");
+		jMenuOption.setText("Opções   ");
         jMenuOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconOption.png")));
         jMenuOption.setFont(new java.awt.Font("Lucida Bright", 1, 13));
-        jMenuPicture.setText("Picture   ");
+        jMenuPicture.setText("Imagens   ");
         jMenuPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconPicture.png")));
         jMenuPicture.setFont(new java.awt.Font("Lucida Bright", 1, 13));
-        jMenuHelp.setText("Help   ");
+        jMenuHelp.setText("Ajuda   ");
         jMenuHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHelp.png")));
         jMenuHelp.setFont(new java.awt.Font("Lucida Bright", 1, 13));
         
         //check box picture menu items
         for(int i=0; i<numOfPictures; i++){
         	jCBItemPic[i]=new JCheckBoxMenuItem();
-        	jCBItemPic[i].setText("Picture-"+(i+1));
+        	jCBItemPic[i].setText("Imagem-"+(i+1));
         	jCBItemPic[i].setFont(new java.awt.Font("Lucida Bright", 2, 13));
         	jCBItemPic[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/pic" +
         													(i+1)+"/MicroPic"+(i+1)+".jpg")));
@@ -206,7 +206,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         
         
         //menu items
-        jMenuItemSolvePuzzle.setText("Solve Puzzle");
+        jMenuItemSolvePuzzle.setText("Resolver Quebra-Cabeça");
         jMenuItemSolvePuzzle.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemSolvePuzzle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconSolvePuzzle.png")));
         jMenuItemSolvePuzzle.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +214,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemSolvePuzzleActionPerformed(evt);
         	}
         });
-        jMenuItemRestart.setText("Restart");
+        jMenuItemRestart.setText("Começar Novamente");
         jMenuItemRestart.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemRestart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconRestart.png")));
         jMenuItemRestart.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +222,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemRestartActionPerformed(evt);
         	}
         });
-        jMenuItemHighScore.setText("High Score");
+        jMenuItemHighScore.setText("Melhores Pontuações");
         jMenuItemHighScore.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemHighScore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHighScore.png")));
         jMenuItemHighScore.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +230,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemHighScoreActionPerformed(evt);
         	}
         });
-        jMenuItemAbout.setText("About");
+        jMenuItemAbout.setText("Sobre");
         jMenuItemAbout.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconAbout.png")));	
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +238,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
             	jMenuItemAboutActionPerformed(evt);
             }
         });
-        jMenuItemDeveloper.setText("Developer");
+        jMenuItemDeveloper.setText("Desenvolvedor");
         jMenuItemDeveloper.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemDeveloper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconDeveloper.png")));	
         jMenuItemDeveloper.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +246,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
             	jMenuItemDeveloperActionPerformed(evt);
             }
         });
-        jMenuItemInstruction.setText("Instruction");
+        jMenuItemInstruction.setText("Instruções");
         jMenuItemInstruction.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemInstruction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconInstruction.png")));
         jMenuItemInstruction.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +254,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemInstructionActionPerformed(evt);
         	}
         });
-        jMenuItemResetMemory.setText("Reset Memory");
+        jMenuItemResetMemory.setText("Recomeçar Pontuações");
         jMenuItemResetMemory.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemResetMemory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconResetMemory.png")));
         jMenuItemResetMemory.addActionListener(new java.awt.event.ActionListener() {
@@ -262,7 +262,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemResetMemoryActionPerformed(evt);
         	}
         });
-        jMenuItemExit.setText("Exit");
+        jMenuItemExit.setText("Sair");
         jMenuItemExit.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconExit.png")));
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
@@ -273,10 +273,10 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         
         //labels
         jLabelPrompt.setBounds(22, 50, 240, 35);
-        jLabelPrompt.setFont(new java.awt.Font("Times New Romans", 0, 20));
+        jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 5, 15));
         jLabelPrompt.setToolTipText("Prompt"); 
         jLabelPrompt.setForeground(new java.awt.Color(74, 0, 74));
-        jLabelPrompt.setText("Press ENTER to start");
+        jLabelPrompt.setText("Pressione ENTER para Começar!");
         jLabelPrompt.setHorizontalAlignment(0);
 
         jLabelFrame.setBounds(72, 142, 142, 176);
@@ -310,7 +310,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelTime.setBounds(33, 363, 220, 50);//time
         jLabelTime.setText(minute+ "." +second+ "." +milSecond);
         jLabelTime.setForeground(new java.awt.Color(91, 91, 0));
-        jLabelTime.setFont(new java.awt.Font("DigifaceWide", 0, 42)); //another font "DS Crystal" 
+        jLabelTime.setFont(new java.awt.Font("Lucida Bright", 10, 40)); //another font "DS Crystal" 
         jLabelTime.setHorizontalAlignment(0);
        
         jLabelTemp=jLabelPicPart[0][3];//used in operation
@@ -399,7 +399,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			soundPlayer.playSound("sound/sounds/RobotSolve.wav");
   			
   	        jLabelPrompt.setForeground(new java.awt.Color(99, 50, 50));
-  			jLabelPrompt.setText("Robot is Solving");
+  			jLabelPrompt.setText("IA resolvendo!");
   			
   			timeMili=0; 
   			pause=false;
@@ -408,7 +408,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			new PuzzleSolver(icon, jLabelPicPart, jLabelTemp, end).solvePuzzle();
   		}
   		if(!start){
-  			new Message("Start the game first!", 210);
+  			new Message("Inicie o jogo primeiro!", 210);
   		}
   	}
   	
@@ -509,8 +509,8 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		if(!start){
   			if(key.getKeyCode() == 10) {
   				start=true;
-  		        jLabelPrompt.setFont(new java.awt.Font("Times New Romans", 0, 28));
-  				jLabelPrompt.setText("Started");
+  		        jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 0, 28));
+  				jLabelPrompt.setText("Iniciado!");
   				
   				mixUp();	//method call
   				
@@ -542,10 +542,10 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		else if (key.getKeyCode() == 80 && end==false && robot==false) {	//when p is pressed 
   			if(pause==false){
   				pause=true;
-  				jLabelPrompt.setText("Paused");
+  				jLabelPrompt.setText("Pausado!");
   			}else{
   				pause=false;
-  				jLabelPrompt.setText("Started");
+  				jLabelPrompt.setText("Iniciado!");
   			}
   			soundPlayer.playSound("sound/sounds/PlayPause.wav");
   		}
@@ -778,7 +778,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		jLabelPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/pic"+pictureNumber	+
   				"/SolvedPic"+pictureNumber+".jpg")));
   		jLabelPicPart[0][3].setIcon(icon[0][3]);
-  		jLabelPrompt.setText("Solved!");
+  		jLabelPrompt.setText("Resolvido!");
   	}
   	
 

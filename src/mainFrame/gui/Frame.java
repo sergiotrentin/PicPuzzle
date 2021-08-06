@@ -521,21 +521,25 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		
   		else if (key.getKeyCode() == 37 && end==false && pause==false && robot==false) {
               //System.out.println("Left");///test
+  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 37);
   			labelSwap(selectedLabel);
         }
   		else if (key.getKeyCode() == 39 && end==false && pause==false && robot==false) {
   			//System.out.println("Right");///test
+  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 39);	
   			labelSwap(selectedLabel);
   		}
   		else if (key.getKeyCode()==38 && end==false && pause==false && robot==false) {
               //System.out.println("Up");///test
+  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 38);			
   			labelSwap(selectedLabel);
   		}
   		else if (key.getKeyCode() == 40 && end==false && pause==false && robot==false) {
   			//System.out.println("Down");///test
+  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 40);	
   			labelSwap(selectedLabel);
         }
@@ -547,7 +551,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   				pause=false;
   				jLabelPrompt.setText("Iniciado!");
   			}
-  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
+  			soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   		}
   		/*///only for test//shows the code
   		else{

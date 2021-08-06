@@ -89,7 +89,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     	
     	this.pictureNumber=pictureNumber;
     	InitialComponent();
-    	soundPlayer.playSound("sound/sounds/NewWindowPopup.wav");
+    	//soundPlayer.playSound("sound/sounds/NewWindowPopup.wav");
     }
     
     

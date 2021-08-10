@@ -40,7 +40,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     private JMenu jMenuOption, jMenuPicture, jMenuHelp;
     //menu items
     private JCheckBoxMenuItem jCBItemPic[] ;
-    private JMenuItem jMenuItemSolvePuzzle, jMenuItemRestart, jMenuItemHighScore;
+    private JMenuItem jMenuItemSolvePuzzle, jMenuItemRestart, jMenuItemHighScore, jMenuItemMuteUnmute;
     private JMenuItem jMenuItemAbout, jMenuItemDeveloper, jMenuItemInstruction, jMenuItemResetMemory, jMenuItemExit;
 	
     private JLabel jLabelPrompt;
@@ -117,7 +117,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		jCBItemPic = new JCheckBoxMenuItem[numOfPictures];
 		jMenuItemSolvePuzzle=new JMenuItem(); jMenuItemRestart=new JMenuItem(); jMenuItemHighScore=new JMenuItem();
 		jMenuItemAbout=new JMenuItem(); jMenuItemDeveloper=new JMenuItem(); jMenuItemInstruction=new JMenuItem();
-		jMenuItemResetMemory=new JMenuItem(); jMenuItemExit=new JMenuItem();
+		jMenuItemResetMemory=new JMenuItem(); jMenuItemExit=new JMenuItem(); jMenuItemMuteUnmute = new JMenuItem();
 		
 		
 		jLabelPrompt=new JLabel(); jLabelFrame=new JLabel(); jLabelPic=new JLabel();
@@ -237,6 +237,14 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemHighScoreActionPerformed(evt);
         	}
         });
+        jMenuItemMuteUnmute.setText(textGame[18]);
+        jMenuItemMuteUnmute.setFont(new java.awt.Font("Lucida Bright", 2, 13));
+        jMenuItemMuteUnmute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHighScore.png")));
+        jMenuItemMuteUnmute.addActionListener(new java.awt.event.ActionListener() {
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+        		jMenuItemMuteUnmute(evt);
+        	}
+        });
         jMenuItemAbout.setText(textGame[7]);
         jMenuItemAbout.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconAbout.png")));	
@@ -345,7 +353,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         //menu bar
         jMenubar.add(jMenuPicture); jMenubar.add(jMenuOption); jMenubar.add(jMenuHelp);
         //menu item
-        jMenuOption.add(jMenuItemSolvePuzzle); jMenuOption.add(jMenuItemRestart); jMenuOption.add(jMenuItemHighScore);
+        jMenuOption.add(jMenuItemSolvePuzzle); jMenuOption.add(jMenuItemRestart); jMenuOption.add(jMenuItemHighScore); jMenuOption.add(jMenuItemMuteUnmute);
         for(int i=0; i<numOfPictures; i++){
         	jMenuPicture.add(jCBItemPic[i]);
         }
@@ -403,7 +411,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     } 
   	private void jMenuItemSolvePuzzleActionPerformed(java.awt.event.ActionEvent evt){
   		if(start && !end && !robot){
-  			soundPlayer.playSound("sound/sounds/RobotSolve.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/RobotSolve.wav");
   			
   	        jLabelPrompt.setForeground(new java.awt.Color(99, 50, 50));
   			jLabelPrompt.setText("IA resolvendo!");
@@ -421,22 +429,22 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	
   	private void jMenuItemHighScoreActionPerformed(java.awt.event.ActionEvent evt){
   		new HighScore(new help.highScore.operation.FileIOOperation().FileReader()).setVisible(true);	//calls a function to get info & shows that by gui
-  		soundPlayer.playSound("sound/sounds/HighScorePopup.wav");
+  		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/HighScorePopup.wav");
   	}
   	private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt){
   		new About().setVisible(true);
-  		soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
+  		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	}
   	private void jMenuItemDeveloperActionPerformed(java.awt.event.ActionEvent evt) {                                         
 		new Profile("07-Jun-2014").setVisible(true);
-		soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
+		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	} 
   	private void jMenuItemInstructionActionPerformed(java.awt.event.ActionEvent evt){
 		new Instruction().setVisible(true);
-		soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
+		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	}
   	private void jMenuItemResetMemoryActionPerformed(java.awt.event.ActionEvent evt){
-  		soundPlayer.playSound("sound/sounds/ResetMemory.wav");
+  		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/ResetMemory.wav");
   		new ResetMemory().setVisible(true);
   	}
 
@@ -445,6 +453,9 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		
   		System.exit(1);
     } 
+  	private void jMenuItemMuteUnmute(java.awt.event.ActionEvent evt){
+  		sessao.setSounds(!(sessao.getSounds()));
+  	}
     //End of Action Events																					#_______AE______#
 
     
@@ -522,31 +533,31 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   				mixUp();	//method call
   				
   				thread.start();
-  				soundPlayer.playSound("sound/sounds/Start.wav");
+  				if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/Start.wav");
   			}
   		}
   		
   		else if (key.getKeyCode() == 37 && end==false && pause==false && robot==false) {
               //System.out.println("Left");///test
-  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 37);
   			labelSwap(selectedLabel);
         }
   		else if (key.getKeyCode() == 39 && end==false && pause==false && robot==false) {
   			//System.out.println("Right");///test
-  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 39);	
   			labelSwap(selectedLabel);
   		}
   		else if (key.getKeyCode()==38 && end==false && pause==false && robot==false) {
               //System.out.println("Up");///test
-  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 38);			
   			labelSwap(selectedLabel);
   		}
   		else if (key.getKeyCode() == 40 && end==false && pause==false && robot==false) {
   			//System.out.println("Down");///test
-  			soundPlayer.playSound("sound/sounds/PlayPause.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/PlayPause.wav");
   			selectedLabel=FindSelectedLabel(jLabelTemp, 40);	
   			labelSwap(selectedLabel);
         }
@@ -558,7 +569,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   				pause=false;
   				jLabelPrompt.setText(textGame[15]);
   			}
-  			soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
+  			if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   		}
   		/*///only for test//shows the code
   		else{
@@ -787,7 +798,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	 * Operation executed after puzzle solved.
   	 */
   	private void afterSolved(){
-  		soundPlayer.playSound("sound/sounds/Solved.wav");
+  		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/Solved.wav");
   		jLabelPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/pic"+pictureNumber	+
   				"/SolvedPic"+pictureNumber+".jpg")));
   		jLabelPicPart[0][3].setIcon(icon[0][3]);
@@ -803,7 +814,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	}
   	
   	public String[] languageTextSelection(String language) {
-  		String[] text = new String[18];
+  		String[] text = new String[19];
   		
   		if (language == "PT") {
   			text[0] = "Opções   ";
@@ -824,6 +835,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			text[15] = "Iniciado!";
   			text[16] = "Pausado!";
   			text[17] = "Resolvido!";
+  			text[18] = "Mutar/Desmutar";
   		}else{
   			text[0] = "Option   ";
   			text[1] = "Picture   ";
@@ -843,6 +855,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			text[15] = "Started";
   			text[16] = "Paused";
   			text[17] = "Solved!";
+  			text[18] = "Mute/Unmute";
   		}
   		
 		return text;

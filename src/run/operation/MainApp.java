@@ -29,8 +29,6 @@ public class MainApp {
 	          JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
 	              null, options, options[0]);
 	    
-	    System.out.println(opt);
-	    
 	    //seleciona a linguagem do jogo
 	    if (opt == 0) {
 	    	sessao.setLanguage("PT");

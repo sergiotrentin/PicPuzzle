@@ -13,9 +13,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import sound.operation.SoundPlayer;
-
-
 @SuppressWarnings("serial")
 public class ResetMemory extends JDialog {
 	/**
@@ -133,7 +130,6 @@ public class ResetMemory extends JDialog {
 	private void jButtonCancelActionPerformed(ActionEvent evt){
 		dispose();
 	}
-	
 	
 	
 	/**

@@ -26,7 +26,7 @@ public class Sessao {
 		this.language = language;
 	}
 
-	public boolean isSounds() {
+	public boolean getSounds() {
 		return sounds;
 	}
 

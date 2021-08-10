@@ -7,6 +7,7 @@
 package help.highScore.gui;
 
 import help.highScore.operation.FileInputOutput;
+import run.operation.Sessao;
 
 import java.awt.event.ActionEvent;
 
@@ -25,7 +26,8 @@ public class ResetMemory extends JDialog {
 	private JButton jButtonCancel;
 	private JPanel jPanelMain;
 	int i;
-	
+	private Sessao sessao = Sessao.getInstance();
+	private String[] textGame;
 	
 	/**
 	 * Constructor////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,17 +49,17 @@ public class ResetMemory extends JDialog {
 		
 		jPanelMain=new JPanel();
 		
-		
+		textGame = languageTextSelection(sessao.getLanguage());
 		
 		/**
 		 * Setting position & size
 		**/
-		jLabelMessage.setText("Deseja reiniciar todos os registros?");
+		jLabelMessage.setText(textGame[0]);
 		jLabelMessage.setFont(new java.awt.Font("Lucida Bright", 0, 15));
 		jLabelMessage.setForeground(new java.awt.Color(1,1,1));
 		jLabelMessage.setBounds(15, 40, 270, 35);
 		
-		jButtonOK.setText("Sim");
+		jButtonOK.setText(textGame[1]);
 		jButtonOK.setBounds(190, 125, 65, 25);
 		jButtonOK.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +74,7 @@ public class ResetMemory extends JDialog {
 	        }
 	    });
 		
-		jButtonCancel.setText("Não");
+		jButtonCancel.setText(textGame[2]);
 		jButtonCancel.setBounds(260, 125, 65, 25);
 		jButtonCancel.setBorder(null);
 		jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +94,7 @@ public class ResetMemory extends JDialog {
 		add(jPanelMain);
 		setModal(true);
 		setResizable(false);
-		setTitle("Reiniciar Memória");
+		setTitle(textGame[3]);
         /**
          * The main panel declaration and adding characteristics//////////////////////////////////////////////////////////////
         **/
@@ -117,7 +119,7 @@ public class ResetMemory extends JDialog {
 			jPanelMain.setBackground(new java.awt.Color(240,240,240));
 			jLabelMessage.setForeground(new java.awt.Color(0, 0, 0));
 			jLabelMessage.setFont(new java.awt.Font("Lucida Bright", 0, 15));
-			jLabelMessage.setText("Registros Reiniciados!");	
+			jLabelMessage.setText(textGame[4]);	
 			
 			//new SoundPlayer().playSound("sound/sounds/MemoryCleared.wav");
 			
@@ -161,4 +163,27 @@ public class ResetMemory extends JDialog {
 		memoryClear.setVisible(true);
 	}
 
+	
+	/*Functions*/
+	public String[] languageTextSelection(String language) {
+  		String[] text = new String[5];
+  		
+  		if (language == "PT") {
+  			text[0] = "Deseja reiniciar todos os registros?";
+  			text[1] = "Sim";
+  			text[2] = "Não";
+  			text[3] = "Reiniciar Memória";
+  			text[4] = "Registros Reiniciados!";
+  		}else{
+  			text[0] = "All records will be gone!!";
+  			text[1] = "Ok";
+  			text[2] = "Cancel";
+  			text[3] = "Reset Memory";
+  			text[4] = " All Cleared ...";
+  		}
+  		
+		return text;
+  		
+  	}
+	
 }

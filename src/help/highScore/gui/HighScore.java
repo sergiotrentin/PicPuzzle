@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
+import run.operation.Sessao;
+
 
 @SuppressWarnings("serial")
 public class HighScore extends JFrame{
@@ -16,13 +18,14 @@ public class HighScore extends JFrame{
 	private JButton jButtonOK;
 	private JTextPane jTextPaneInfo;
     private JLabel jLabelNote;
+    private Sessao sessao = Sessao.getInstance();
     
     String info;
 	/**
 	 * Declaration ends
 	**/
 	
-	
+    
 	/**
 	 * The constructor////////////////////////////////////////////////////////////////////////////////////////////////////////
 	**/
@@ -56,7 +59,11 @@ public class HighScore extends JFrame{
 		///****criteria of the frame****///
 		setIconImage(new ImageIcon(getClass().getResource("/help/highScore/pictures/IconHighScore.png")).getImage());
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Melhores Pontuações");
+        if(sessao.getLanguage() == "PT"){
+        	setTitle("Melhores Pontuações");
+        }else{
+        	setTitle("High Score");	
+        }
         setResizable(false);
         setBounds(500, 145, 350, 450);
         setLayout(null);

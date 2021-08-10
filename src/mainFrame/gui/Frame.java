@@ -22,6 +22,7 @@ import java.util.Random;
 import javax.swing.*;
 
 import robot.operation.PuzzleSolver;
+import run.operation.Sessao;
 import sound.operation.SoundPlayer;
 
 @SuppressWarnings("serial")
@@ -73,6 +74,10 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 	private SoundPlayer soundPlayer;
 	//End of Variable Declaration																			#_______D_______#
     
+	private Sessao sessao = Sessao.getInstance();
+	
+	private String[] textGame;
+	
     
     //**Constructor**//
     public Frame(int pictureNumber){
@@ -139,7 +144,6 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     	//End of Initialization 																			#_______I_______#
 		
 		
-		
 		//**
 		// Setting Bounds and Attributes of the Elements													#*******S*******#
 		//**
@@ -149,21 +153,24 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelMain.setBounds(0, 0, 730, 540);
         jLabelMain.setLayout(null);
         
-		//menus
-		jMenuOption.setText("Opções   ");
+        textGame = languageTextSelection(sessao.getLanguage());
+        
+       
+    	jMenuOption.setText(textGame[0]);
         jMenuOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconOption.png")));
         jMenuOption.setFont(new java.awt.Font("Lucida Bright", 1, 13));
-        jMenuPicture.setText("Imagens   ");
+        jMenuPicture.setText(textGame[1]);
         jMenuPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconPicture.png")));
         jMenuPicture.setFont(new java.awt.Font("Lucida Bright", 1, 13));
-        jMenuHelp.setText("Ajuda   ");
+        jMenuHelp.setText(textGame[2]);
         jMenuHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHelp.png")));
         jMenuHelp.setFont(new java.awt.Font("Lucida Bright", 1, 13));
         
+	       
         //check box picture menu items
         for(int i=0; i<numOfPictures; i++){
         	jCBItemPic[i]=new JCheckBoxMenuItem();
-        	jCBItemPic[i].setText("Imagem-"+(i+1));
+        	jCBItemPic[i].setText(textGame[3]+(i+1));
         	jCBItemPic[i].setFont(new java.awt.Font("Lucida Bright", 2, 13));
         	jCBItemPic[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/pic" +
         													(i+1)+"/MicroPic"+(i+1)+".jpg")));
@@ -206,7 +213,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         
         
         //menu items
-        jMenuItemSolvePuzzle.setText("Resolver Quebra-Cabeça");
+        jMenuItemSolvePuzzle.setText(textGame[4]);
         jMenuItemSolvePuzzle.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemSolvePuzzle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconSolvePuzzle.png")));
         jMenuItemSolvePuzzle.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +221,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemSolvePuzzleActionPerformed(evt);
         	}
         });
-        jMenuItemRestart.setText("Começar Novamente");
+        jMenuItemRestart.setText(textGame[5]);
         jMenuItemRestart.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemRestart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconRestart.png")));
         jMenuItemRestart.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +229,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemRestartActionPerformed(evt);
         	}
         });
-        jMenuItemHighScore.setText("Melhores Pontuações");
+        jMenuItemHighScore.setText(textGame[6]);
         jMenuItemHighScore.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemHighScore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHighScore.png")));
         jMenuItemHighScore.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +237,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemHighScoreActionPerformed(evt);
         	}
         });
-        jMenuItemAbout.setText("Sobre");
+        jMenuItemAbout.setText(textGame[7]);
         jMenuItemAbout.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconAbout.png")));	
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +245,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
             	jMenuItemAboutActionPerformed(evt);
             }
         });
-        jMenuItemDeveloper.setText("Desenvolvedor");
+        jMenuItemDeveloper.setText(textGame[8]);
         jMenuItemDeveloper.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemDeveloper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconDeveloper.png")));	
         jMenuItemDeveloper.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +253,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
             	jMenuItemDeveloperActionPerformed(evt);
             }
         });
-        jMenuItemInstruction.setText("Instruções");
+        jMenuItemInstruction.setText(textGame[9]);
         jMenuItemInstruction.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemInstruction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconInstruction.png")));
         jMenuItemInstruction.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +261,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemInstructionActionPerformed(evt);
         	}
         });
-        jMenuItemResetMemory.setText("Recomeçar Pontuações");
+        jMenuItemResetMemory.setText(textGame[10]);
         jMenuItemResetMemory.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemResetMemory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconResetMemory.png")));
         jMenuItemResetMemory.addActionListener(new java.awt.event.ActionListener() {
@@ -262,7 +269,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         		jMenuItemResetMemoryActionPerformed(evt);
         	}
         });
-        jMenuItemExit.setText("Sair");
+        jMenuItemExit.setText(textGame[11]);
         jMenuItemExit.setFont(new java.awt.Font("Lucida Bright", 2, 13));
         jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconExit.png")));
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +283,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 5, 15));
         jLabelPrompt.setToolTipText("Prompt"); 
         jLabelPrompt.setForeground(new java.awt.Color(74, 0, 74));
-        jLabelPrompt.setText("Pressione ENTER para Começar!");
+        jLabelPrompt.setText(textGame[12]);
         jLabelPrompt.setHorizontalAlignment(0);
 
         jLabelFrame.setBounds(72, 142, 142, 176);
@@ -408,7 +415,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			new PuzzleSolver(icon, jLabelPicPart, jLabelTemp, end).solvePuzzle();
   		}
   		if(!start){
-  			new Message("Inicie o jogo primeiro!", 210);
+  			new Message(textGame[14], 210);
   		}
   	}
   	
@@ -510,7 +517,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   			if(key.getKeyCode() == 10) {
   				start=true;
   		        jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 0, 28));
-  				jLabelPrompt.setText("Iniciado!");
+  				jLabelPrompt.setText(textGame[15]);
   				
   				mixUp();	//method call
   				
@@ -546,10 +553,10 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		else if (key.getKeyCode() == 80 && end==false && robot==false) {	//when p is pressed 
   			if(pause==false){
   				pause=true;
-  				jLabelPrompt.setText("Pausado!");
+  				jLabelPrompt.setText(textGame[16]);
   			}else{
   				pause=false;
-  				jLabelPrompt.setText("Iniciado!");
+  				jLabelPrompt.setText(textGame[15]);
   			}
   			soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   		}
@@ -560,6 +567,8 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     }
   	
 
+  	
+  	
     public void keyReleased(KeyEvent key) {
     }
 
@@ -782,7 +791,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		jLabelPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/pic"+pictureNumber	+
   				"/SolvedPic"+pictureNumber+".jpg")));
   		jLabelPicPart[0][3].setIcon(icon[0][3]);
-  		jLabelPrompt.setText("Resolvido!");
+  		jLabelPrompt.setText(textGame[17]);
   	}
   	
 
@@ -792,6 +801,54 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	public void setJCBItemPic1Selected(){
   		jCBItemPic[0].setSelected(true);
   	}
+  	
+  	public String[] languageTextSelection(String language) {
+  		String[] text = new String[18];
+  		
+  		if (language == "PT") {
+  			text[0] = "Opções   ";
+  			text[1] = "Imagens    ";
+  			text[2] = "Ajuda    ";
+  			text[3] = "Imagem-";
+  			text[4] = "Resolver Quebra-Cabeça";
+  			text[5] = "Começar Novamente";
+  			text[6] = "Melhores Pontuações";
+  			text[7] = "Sobre";
+  			text[8] = "Desenvolvedor";
+  			text[9] = "Instruções";
+  			text[10] = "Recomeçar Pontuações";
+  			text[11] = "Sair";
+  			text[12] = "Pressione ENTER para Começar!";
+  			text[13] = "Robô resolvendo!";
+  			text[14] = "Inicie o jogo primeiro!";
+  			text[15] = "Iniciado!";
+  			text[16] = "Pausado!";
+  			text[17] = "Resolvido!";
+  		}else{
+  			text[0] = "Option   ";
+  			text[1] = "Picture   ";
+  			text[2] = "Help   ";
+  			text[3] = "Picture-";
+  			text[4] = "Solve Puzzle";
+  			text[5] = "Restart";
+  			text[6] = "High Score";
+  			text[7] = "About";
+  			text[8] = "Developer";
+  			text[9] = "Instruction";
+  			text[10] = "Reset Memory";
+  			text[11] = "Exit";
+  			text[12] = "Press ENTER to start";
+  			text[13] = "Robot is Solving";
+  			text[14] = "Start the game first!";
+  			text[15] = "Started";
+  			text[16] = "Paused";
+  			text[17] = "Solved!";
+  		}
+  		
+		return text;
+  		
+  	}
+  	
     //End of Auxiliary Methods																				#_______AM______#
 }
 

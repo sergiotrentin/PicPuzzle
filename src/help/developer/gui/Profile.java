@@ -82,24 +82,10 @@ public class Profile extends JFrame implements Runnable{
         jLabelMain.setBounds(0, 0, 525, 340);
         jLabelMain.setLayout(null);
 
-        jLabelName.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelName.setText("Minhas Kamal ");
-        jLabelName.setToolTipText(textGame[1]);
-        jLabelName.setBounds(20, 60, 120, 20);
-
-        jLabelInstitute.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelInstitute.setText("Institute of Information Technology, DU ");
-        jLabelInstitute.setToolTipText(textGame[2]);
-        jLabelInstitute.setBounds(20, 90, 290, 20);
-
-        jLabelDate.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelDate.setText(textGame[3]+": " + date);
-        jLabelDate.setToolTipText(textGame[4]);
-        jLabelDate.setBounds(20, 120, 200, 20);
-
-        jLabelEmail.setFont(new java.awt.Font("Lucida Bright", 2, 15)); // NOI18N
-        jLabelEmail.setText("Email: minhaskamal024@gmail.com");
-        jLabelEmail.setBounds(20, 150, 260, 20);
+        jLabelName = configLabelComponent(jLabelName,"Minhas Kamal ",textGame[1],20, 60, 120, 20);
+        jLabelInstitute = configLabelComponent(jLabelInstitute,"Institute of Information Technology, DU ",textGame[2], 20, 90, 290, 20);
+        jLabelDate = configLabelComponent(jLabelDate,textGame[3]+": " + date,textGame[4], 20, 120, 200, 20);
+        jLabelEmail = configLabelComponent(jLabelEmail,"Email: minhaskamal024@gmail.com", null, 20, 150, 260, 20);
 
         jButtonPhoto.setToolTipText(textGame[5]);
         jButtonPhoto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -228,6 +214,19 @@ public class Profile extends JFrame implements Runnable{
 	}
 
 	/*Funcitons Aux*/
+	public JLabel configLabelComponent(JLabel label, String text, String ToolText, 
+									   int x, int y, int width, int height) {
+		
+		label.setFont(new java.awt.Font("Lucida Bright", 2, 15)); //Font Padrão
+		
+		if(text != null) label.setText(text);
+		if(ToolText != null) label.setToolTipText(ToolText);
+		if((x != 0) && (y != 0) && (width != 0) && (height != 0)) label.setBounds(x, y, width, height);
+		
+		return label;
+	}
+	
+	
 	public String[] languageTextSelection(String language) {
   		String[] text = new String[8];
   		

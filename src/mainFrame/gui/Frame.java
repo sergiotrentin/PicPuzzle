@@ -767,30 +767,29 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	 * @return true if icons are in position other wise return false.
   	 */
   	private boolean verify(){
-  		boolean flag=true;
   		
-  		if(jLabelPicPart[0][0].getIcon()!=icon[0][0]) flag=false;
-  		else if(jLabelPicPart[0][1].getIcon()!=icon[0][1]) flag=false;
-  		else if(jLabelPicPart[0][2].getIcon()!=icon[0][2]) flag=false;
-  		else if(jLabelPicPart[0][3].getIcon()!=icon0) flag=false;//0icon//
-  		else if(jLabelPicPart[1][0].getIcon()!=icon[1][0]) flag=false;
-  		else if(jLabelPicPart[1][1].getIcon()!=icon[1][1]) flag=false;
-  		else if(jLabelPicPart[1][2].getIcon()!=icon[1][2]) flag=false;
-  		else if(jLabelPicPart[1][3].getIcon()!=icon[1][3]) flag=false;
-  		else if(jLabelPicPart[2][0].getIcon()!=icon[2][0]) flag=false;
-  		else if(jLabelPicPart[2][1].getIcon()!=icon[2][1]) flag=false;
-  		else if(jLabelPicPart[2][2].getIcon()!=icon[2][2]) flag=false;
-  		else if(jLabelPicPart[2][3].getIcon()!=icon[2][3]) flag=false;
-  		else if(jLabelPicPart[3][0].getIcon()!=icon[3][0]) flag=false;
-  		else if(jLabelPicPart[3][1].getIcon()!=icon[3][1]) flag=false;
-  		else if(jLabelPicPart[3][2].getIcon()!=icon[3][2]) flag=false;
-  		else if(jLabelPicPart[3][3].getIcon()!=icon[3][3]) flag=false;
-  		else if(jLabelPicPart[4][0].getIcon()!=icon[4][0]) flag=false;
-  		else if(jLabelPicPart[4][1].getIcon()!=icon[4][1]) flag=false;
-  		else if(jLabelPicPart[4][2].getIcon()!=icon[4][2]) flag=false;
-  		else if(jLabelPicPart[4][3].getIcon()!=icon[4][3]) flag=false;
+  		if(jLabelPicPart[0][0].getIcon()!=icon[0][0]) return false;
+  		else if(jLabelPicPart[0][1].getIcon()!=icon[0][1]) return false;
+  		else if(jLabelPicPart[0][2].getIcon()!=icon[0][2]) return false;
+  		else if(jLabelPicPart[0][3].getIcon()!=icon0) return false;//0icon//
+  		else if(jLabelPicPart[1][0].getIcon()!=icon[1][0]) return false;
+  		else if(jLabelPicPart[1][1].getIcon()!=icon[1][1]) return false;
+  		else if(jLabelPicPart[1][2].getIcon()!=icon[1][2]) return false;
+  		else if(jLabelPicPart[1][3].getIcon()!=icon[1][3]) return false;
+  		else if(jLabelPicPart[2][0].getIcon()!=icon[2][0]) return false;
+  		else if(jLabelPicPart[2][1].getIcon()!=icon[2][1]) return false;
+  		else if(jLabelPicPart[2][2].getIcon()!=icon[2][2]) return false;
+  		else if(jLabelPicPart[2][3].getIcon()!=icon[2][3]) return false;
+  		else if(jLabelPicPart[3][0].getIcon()!=icon[3][0]) return false;
+  		else if(jLabelPicPart[3][1].getIcon()!=icon[3][1]) return false;
+  		else if(jLabelPicPart[3][2].getIcon()!=icon[3][2]) return false;
+  		else if(jLabelPicPart[3][3].getIcon()!=icon[3][3]) return false;
+  		else if(jLabelPicPart[4][0].getIcon()!=icon[4][0]) return false;
+  		else if(jLabelPicPart[4][1].getIcon()!=icon[4][1]) return false;
+  		else if(jLabelPicPart[4][2].getIcon()!=icon[4][2]) return false;
+  		else if(jLabelPicPart[4][3].getIcon()!=icon[4][3]) return false;
+  		else return true;
 
-  		return flag;
   	}
   	
 

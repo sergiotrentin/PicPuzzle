@@ -8,10 +8,11 @@ package help.developer.gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
 
 import javax.swing.*;
 
-import run.operation.Sessao;
+import run.operation.ManipuladorArquivo;
 
 @SuppressWarnings("serial")
 public class Profile extends JFrame implements Runnable{
@@ -23,7 +24,6 @@ public class Profile extends JFrame implements Runnable{
 	private JLabel jLabelName, jLabelInstitute, jLabelDate, jLabelEmail;
     private JLabel jLabelPhoto[];
     private JTextArea jTextAreaInformation;
-    private Sessao sessao = Sessao.getInstance();
     
     //other variables
     private String date;			//Change it accordingly
@@ -34,8 +34,9 @@ public class Profile extends JFrame implements Runnable{
     private String textGame[]; //text Profile
 	// End of Variable Declaration 																			#_______D_______#
 
-	/***##Constructor##***/
-    public Profile() {
+	/***##Constructor##
+	 * @throws IOException ***/
+    public Profile() throws IOException {
     	this.date="07-Jun-2014";
     	numberOfPhotos=7;
     	isStanding=false;
@@ -43,8 +44,9 @@ public class Profile extends JFrame implements Runnable{
     	
     	initialComponent();
     }
-    /***##Constructor##***/
-    public Profile(String date) {
+    /***##Constructor##
+     * @throws IOException ***/
+    public Profile(String date) throws IOException {
     	this.date=date;
     	numberOfPhotos=7;
     	isStanding=false;
@@ -56,8 +58,9 @@ public class Profile extends JFrame implements Runnable{
     /**
 	 * Method for Initializing all the GUI variables, placing them all to specific space on the frame and adding action
 	 * listener to them. Also specifies criteria of the main frame.
+     * @throws IOException 
 	 */
-	private void initialComponent() {
+	private void initialComponent() throws IOException {
 		//**
 		// Initialization 																					#*******I*******#
 		//**
@@ -69,7 +72,7 @@ public class Profile extends JFrame implements Runnable{
         jLabelEmail = new JLabel();
         jLabelPhoto = new JLabel[numberOfPhotos+1];	//we need one extra photo
      
-        textGame = languageTextSelection(sessao.getLanguage());
+        textGame = ManipuladorArquivo.getTextProfile();
         
         jTextAreaInformation = new JTextArea();
 		// End of Initialization																			#_______I_______#
@@ -115,7 +118,7 @@ public class Profile extends JFrame implements Runnable{
         jTextAreaInformation.setColumns(20);
         jTextAreaInformation.setFont(new Font("Lucida Bright", 0, 10)); // NOI18N
         jTextAreaInformation.setRows(5);
-        jTextAreaInformation.setText(textGame[6]);
+        jTextAreaInformation.setText("   "+textGame[6]);
        //jTextAreaInformation.setBorder((new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
         jTextAreaInformation.setBounds(10, 225, 500, 75);
         
@@ -198,8 +201,9 @@ public class Profile extends JFrame implements Runnable{
     }
 	// End of Action Events 																				#________AE_______#
 
-	/********* Main Method *********/
-	public static void main(String args[]) {
+	/********* Main Method 
+	 * @throws IOException *********/
+	public static void main(String args[]) throws IOException {
 		/*// Set the NIMBUS look and feel //*/
 		try {
 			javax.swing.UIManager
@@ -225,38 +229,5 @@ public class Profile extends JFrame implements Runnable{
 		
 		return label;
 	}
-	
-	
-	public String[] languageTextSelection(String language) {
-  		String[] text = new String[8];
-  		
-  		if (language == "PT") {
-  			text[0] = "07-Jun-2014";
-  			text[1] = "Nome";
-  			text[2] = "Graduação";
-  			text[3] = "Data";
-  			text[4] = "Data de Conclusão";
-  			text[5] = "Click para pausar";
-  			text[6] = "   Olá, é Minhas Kamal, minha cidade natal é Jhenaidah. Comecei minha vida de estudo na " +
-  	        		"\n   Arbi-Medium School (como Madrasa) chamada Al-Faruq Academy e continuei lá até " +
-  	        		"\n   a classe 7. Concluí meu SSC na Kanchan Nagar Model High School & College e HSC " +
-  	        		"\n   da Jhenaidah Govt. K.C. College. Agora estou no curso BSSE no IIT, DU. ";
-  			text[7] = "Perfil do Desenvolvedor";
-  		}else{
-  			text[0] = "__-__-20__";
-  			text[1] = "Name";
-  			text[2] = "Educational Institute";
-  			text[3] = "Date";
-  			text[4] = "Date of Completion";
-  			text[5] = "Click to pause";
-  			text[6] = "   Hi, its Minhas Kamal, my home town is Jhenaidah. I started my study life by attending an " +
-  	        		"\n   Arbi-Medium  School (like Madrasa) named  Al-Faruq  Academy &  continued there upto " +
-  	        		"\n   class 7. I completed my SSC from Kanchan Nagar Model High School & College and HSC " +
-  	        		"\n   from  Jhenaidah Govt. K.C. College. Now I am in  BSSE  course at  IIT, DU. ";
-  			text[7] = "Developer's Profile";
-  		}
-  		
-		return text;
-  	}
 	
 }

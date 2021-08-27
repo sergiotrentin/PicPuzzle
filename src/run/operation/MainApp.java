@@ -7,13 +7,15 @@
 
 package run.operation;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import mainFrame.gui.*;
 
 
 public class MainApp {
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		
 		Sessao sessao = Sessao.getInstance();
 		

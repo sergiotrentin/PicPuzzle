@@ -18,10 +18,12 @@ import help.notifications.message.gui.Message;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.Random;
 import javax.swing.*;
 
 import robot.operation.PuzzleSolver;
+import run.operation.ManipuladorArquivo;
 import run.operation.Sessao;
 import sound.operation.SoundPlayer;
 
@@ -80,7 +82,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 	
     
     //**Constructor**//
-    public Frame(int pictureNumber){
+    public Frame(int pictureNumber) throws IOException{
     	timeMili=0;
     	minute="00";
 		second="00";
@@ -90,7 +92,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		end=false;
 		robot=false;
 		
-    	numOfPictures = 7;
+    	numOfPictures = 8;
     	
     	this.pictureNumber=pictureNumber;
     	InitialComponent();
@@ -101,8 +103,9 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
     /**
 	 * Method for Initializing all the GUI variables, placing them all to specific space on the frame and adding action
 	 * listener to them. Also specifies criteria of the main frame.
+     * @throws IOException 
 	 */
-    private void InitialComponent(){
+    private void InitialComponent() throws IOException{
 		//**
 		// Initialization 																					#*******I*******#
 		//**
@@ -143,7 +146,6 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         soundPlayer = new SoundPlayer();
     	//End of Initialization 																			#_______I_______#
 		
-		
 		//**
 		// Setting Bounds and Attributes of the Elements													#*******S*******#
 		//**
@@ -153,8 +155,8 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelMain.setBounds(0, 0, 730, 540);
         jLabelMain.setLayout(null);
         
-        textGame = languageTextSelection(sessao.getLanguage());
-        
+        //Get The Text game Language
+        textGame = ManipuladorArquivo.getTextFrame();
        
     	jMenuOption.setText(textGame[0]);
         jMenuOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconOption.png")));
@@ -177,37 +179,82 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         }
         jCBItemPic[0].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(0);
+    			try {
+					jCBItemPicActionPerformed(0);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[1].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(1);
+    			try {
+					jCBItemPicActionPerformed(1);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[2].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(2);
+    			try {
+					jCBItemPicActionPerformed(2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[3].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(3);
+    			try {
+					jCBItemPicActionPerformed(3);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[4].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(4);
+    			try {
+					jCBItemPicActionPerformed(4);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[5].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(5);
+    			try {
+					jCBItemPicActionPerformed(5);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         jCBItemPic[6].addActionListener(new java.awt.event.ActionListener() {
     		public void actionPerformed(java.awt.event.ActionEvent evt) {
-    			jCBItemPicActionPerformed(6);
+    			try {
+					jCBItemPicActionPerformed(6);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}
+    	});
+        jCBItemPic[7].addActionListener(new java.awt.event.ActionListener() {
+    		public void actionPerformed(java.awt.event.ActionEvent evt) {
+    			try {
+					jCBItemPicActionPerformed(7);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     	});
         
@@ -226,7 +273,12 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jMenuItemRestart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconRestart.png")));
         jMenuItemRestart.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		jMenuItemRestartActionPerformed(evt);
+        		try {
+					jMenuItemRestartActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
         	}
         });
         jMenuItemHighScore.setText(textGame[6]);
@@ -239,7 +291,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         });
         jMenuItemMuteUnmute.setText(textGame[18]);
         jMenuItemMuteUnmute.setFont(new java.awt.Font("Lucida Bright", 2, 13));
-        jMenuItemMuteUnmute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconHighScore.png")));
+        jMenuItemMuteUnmute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconSound.png")));
         jMenuItemMuteUnmute.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
         		jMenuItemMuteUnmute(evt);
@@ -250,7 +302,12 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconAbout.png")));	
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jMenuItemAboutActionPerformed(evt);
+            	try {
+					jMenuItemAboutActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         jMenuItemDeveloper.setText(textGame[8]);
@@ -258,7 +315,12 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jMenuItemDeveloper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconDeveloper.png")));	
         jMenuItemDeveloper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	jMenuItemDeveloperActionPerformed(evt);
+            	try {
+					jMenuItemDeveloperActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         jMenuItemInstruction.setText(textGame[9]);
@@ -274,7 +336,12 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jMenuItemResetMemory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/IconResetMemory.png")));
         jMenuItemResetMemory.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		jMenuItemResetMemoryActionPerformed(evt);
+        		try {
+					jMenuItemResetMemoryActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
         	}
         });
         jMenuItemExit.setText(textGame[11]);
@@ -382,7 +449,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 	// Action Events																						#*******AE******#
 	//**
     //menu bar actions
-  	private void jCBItemPicActionPerformed(int n) {                                         
+  	private void jCBItemPicActionPerformed(int n) throws IOException {                                         
       	Frame frame = new Frame(n+1);
       	frame.setVisible(true);
       	frame.jCBItemPic[n].setSelected(true);
@@ -394,7 +461,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	} 
   	
   	
-	private void jMenuItemRestartActionPerformed(java.awt.event.ActionEvent evt) {                                         
+	private void jMenuItemRestartActionPerformed(java.awt.event.ActionEvent evt) throws IOException {                                         
   		Frame frame = new Frame(pictureNumber);
       	frame.setVisible(true);
       	if(pictureNumber==1) frame.jCBItemPic[0].setSelected(true);
@@ -404,6 +471,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
       	else if(pictureNumber==5) frame.jCBItemPic[4].setSelected(true);
       	else if(pictureNumber==6) frame.jCBItemPic[5].setSelected(true);
       	else if(pictureNumber==7) frame.jCBItemPic[6].setSelected(true);
+      	else if(pictureNumber==8) frame.jCBItemPic[7].setSelected(true);
       	
       	end=true;
       	//setEnabled(false);
@@ -431,11 +499,11 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   		new HighScore(new help.highScore.operation.FileIOOperation().FileReader()).setVisible(true);	//calls a function to get info & shows that by gui
   		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/HighScorePopup.wav");
   	}
-  	private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt){
+  	private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt) throws IOException{
   		new About().setVisible(true);
   		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	}
-  	private void jMenuItemDeveloperActionPerformed(java.awt.event.ActionEvent evt) {                                         
+  	private void jMenuItemDeveloperActionPerformed(java.awt.event.ActionEvent evt) throws IOException {                                         
 		new Profile("07-Jun-2014").setVisible(true);
 		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	} 
@@ -443,7 +511,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		new Instruction().setVisible(true);
 		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/GeneralPopup.wav");
   	}
-  	private void jMenuItemResetMemoryActionPerformed(java.awt.event.ActionEvent evt){
+  	private void jMenuItemResetMemoryActionPerformed(java.awt.event.ActionEvent evt) throws IOException{
   		if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/ResetMemory.wav");
   		new ResetMemory().setVisible(true);
   	}
@@ -589,7 +657,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	
     
     //**  Main Method  **//
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
     	/* Set the NIMBUS look and feel */
     	try {
 			javax.swing.UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");					
@@ -810,55 +878,6 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   	 */
   	public void setJCBItemPic1Selected(){
   		jCBItemPic[0].setSelected(true);
-  	}
-  	
-  	public String[] languageTextSelection(String language) {
-  		String[] text = new String[19];
-  		
-  		if (language == "PT") {
-  			text[0] = "Opções   ";
-  			text[1] = "Imagens    ";
-  			text[2] = "Ajuda    ";
-  			text[3] = "Imagem-";
-  			text[4] = "Resolver Quebra-Cabeça";
-  			text[5] = "Começar Novamente";
-  			text[6] = "Melhores Pontuações";
-  			text[7] = "Sobre";
-  			text[8] = "Desenvolvedor";
-  			text[9] = "Instruções";
-  			text[10] = "Recomeçar Pontuações";
-  			text[11] = "Sair";
-  			text[12] = "Pressione ENTER para Começar!";
-  			text[13] = "Robô resolvendo!";
-  			text[14] = "Inicie o jogo primeiro!";
-  			text[15] = "Iniciado!";
-  			text[16] = "Pausado!";
-  			text[17] = "Resolvido!";
-  			text[18] = "Mutar/Desmutar";
-  		}else{
-  			text[0] = "Option   ";
-  			text[1] = "Picture   ";
-  			text[2] = "Help   ";
-  			text[3] = "Picture-";
-  			text[4] = "Solve Puzzle";
-  			text[5] = "Restart";
-  			text[6] = "High Score";
-  			text[7] = "About";
-  			text[8] = "Developer";
-  			text[9] = "Instruction";
-  			text[10] = "Reset Memory";
-  			text[11] = "Exit";
-  			text[12] = "Press ENTER to start";
-  			text[13] = "Robot is Solving";
-  			text[14] = "Start the game first!";
-  			text[15] = "Started";
-  			text[16] = "Paused";
-  			text[17] = "Solved!";
-  			text[18] = "Mute/Unmute";
-  		}
-  		
-		return text;
-  		
   	}
   	
     //End of Auxiliary Methods																				#_______AM______#

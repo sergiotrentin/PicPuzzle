@@ -7,9 +7,10 @@
 package help.highScore.gui;
 
 import help.highScore.operation.FileInputOutput;
-import run.operation.Sessao;
+import run.operation.ManipuladorArquivo;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -23,20 +24,20 @@ public class ResetMemory extends JDialog {
 	private JButton jButtonCancel;
 	private JPanel jPanelMain;
 	int i;
-	private Sessao sessao = Sessao.getInstance();
 	private String[] textGame;
 	
 	/**
 	 * Constructor////////////////////////////////////////////////////////////////////////////////////////////////////
+	 * @throws IOException 
 	**/
-	public ResetMemory(){
+	public ResetMemory() throws IOException{
 		i=1;
 		
 		initComponent();
 	}
 	
 	//doing initial work
-	private void initComponent(){
+	private void initComponent() throws IOException{
 		/**
 		 * Initialization////////////////////////////////////////////////////////////////////////////////////////////
 		**/
@@ -46,7 +47,7 @@ public class ResetMemory extends JDialog {
 		
 		jPanelMain=new JPanel();
 		
-		textGame = languageTextSelection(sessao.getLanguage());
+		textGame = ManipuladorArquivo.getTextResetMemory();
 		
 		/**
 		 * Setting position & size
@@ -76,8 +77,7 @@ public class ResetMemory extends JDialog {
 		jButtonCancel.setBorder(null);
 		jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
         	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		dispose();
-        		//jButtonCancelActionPerformed(evt);
+        		jButtonCancelActionPerformed(evt);
         	}
         });
 		
@@ -134,8 +134,9 @@ public class ResetMemory extends JDialog {
 	
 	/**
 	 * The main method////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 * @throws IOException 
 	**/
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		/**/
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -158,28 +159,5 @@ public class ResetMemory extends JDialog {
 		ResetMemory memoryClear = new ResetMemory();
 		memoryClear.setVisible(true);
 	}
-
-	
-	/*Functions*/
-	public String[] languageTextSelection(String language) {
-  		String[] text = new String[5];
-  		
-  		if (language == "PT") {
-  			text[0] = "Deseja reiniciar todos os registros?";
-  			text[1] = "Sim";
-  			text[2] = "Não";
-  			text[3] = "Reiniciar Memória";
-  			text[4] = "Registros Reiniciados!";
-  		}else{
-  			text[0] = "All records will be gone!!";
-  			text[1] = "Ok";
-  			text[2] = "Cancel";
-  			text[3] = "Reset Memory";
-  			text[4] = " All Cleared ...";
-  		}
-  		
-		return text;
-  		
-  	}
 	
 }

@@ -130,11 +130,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		icon = new ImageIcon[5][4];
 		 	
 		icon0=new ImageIcon();
-		
-		iconLeft=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/VerticalLineLeft.jpg"));
-			iconRight=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/VerticalLineRight.jpg"));
-			iconUp=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/HorizontalLineUp.jpg"));
-			iconDown=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/HorizontalLineDown.jpg"));
+
 			
 		//*Thread*//
         thread = new Thread(this);

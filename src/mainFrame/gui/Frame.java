@@ -467,6 +467,8 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
       	else if(pictureNumber==6) frame.jCBItemPic[5].setSelected(true);
       	else if(pictureNumber==7) frame.jCBItemPic[6].setSelected(true);
       	else if(pictureNumber==8) frame.jCBItemPic[7].setSelected(true);
+      		
+      	
       	
       	end=true;
       	//setEnabled(false);
@@ -596,7 +598,9 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
   				mixUp();	//method call
   				
   				thread.start();
-  				if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/Start.wav");
+  				if (pictureNumber == 8)  if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/Naruto.wav");
+  				else if(sessao.getSounds()) soundPlayer.playSound("sound/sounds/Start.wav");
+  				
   			}
   		}
   		

@@ -146,8 +146,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		// Setting Bounds and Attributes of the Elements													#*******S*******#
 		//**
 		//main label
-		jLabelMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/BackGround" + 
-															(pictureNumber)+".png")));
+		jLabelMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/BackGround1.png")));
         jLabelMain.setBounds(0, 0, 760, 570);
         jLabelMain.setLayout(null);
         

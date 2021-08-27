@@ -13,10 +13,10 @@ public class ManipuladorArquivo {
 		
 		if(sessao.getLanguage() == "PT") {
 			file = new FileInputStream(
-					"pt-br.properties");
+					"Language/pt-br.properties");
 		}else {
 			file = new FileInputStream(
-					"en.properties");
+					"Language/en.properties");
 		}
 		
 		props.load(file);

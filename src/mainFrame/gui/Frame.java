@@ -130,11 +130,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		icon = new ImageIcon[5][4];
 		 	
 		icon0=new ImageIcon();
-		
-		iconLeft=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/VerticalLineLeft.jpg"));
-			iconRight=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/VerticalLineRight.jpg"));
-			iconUp=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/HorizontalLineUp.jpg"));
-			iconDown=new ImageIcon(getClass().getResource("/mainFrame/pictures/others/HorizontalLineDown.jpg"));
+
 			
 		//*Thread*//
         thread = new Thread(this);
@@ -150,7 +146,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		//main label
 		jLabelMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/BackGround" + 
 															(pictureNumber)+".png")));
-        jLabelMain.setBounds(0, 0, 730, 540);
+        jLabelMain.setBounds(0, 0, 760, 570);
         jLabelMain.setLayout(null);
         
         textGame = languageTextSelection(sessao.getLanguage());
@@ -288,9 +284,9 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         
         //labels
         jLabelPrompt.setBounds(22, 50, 240, 35);
-        jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 5, 15));
+        jLabelPrompt.setFont(new java.awt.Font("Lucida Bright", 12, 20));
         jLabelPrompt.setToolTipText("Prompt"); 
-        jLabelPrompt.setForeground(new java.awt.Color(74, 0, 74));
+        jLabelPrompt.setForeground(new java.awt.Color(236, 236, 236));
         jLabelPrompt.setText(textGame[12]);
         jLabelPrompt.setHorizontalAlignment(0);
 
@@ -322,10 +318,10 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
         jLabelDown.setIcon(iconDown);
         
         
-        jLabelTime.setBounds(33, 363, 220, 50);//time
+        jLabelTime.setBounds(33, 330, 220, 20);//time
         jLabelTime.setText(minute+ "." +second+ "." +milSecond);
-        jLabelTime.setForeground(new java.awt.Color(91, 91, 0));
-        jLabelTime.setFont(new java.awt.Font("Lucida Bright", 10, 40)); //another font "DS Crystal" 
+        jLabelTime.setForeground(new java.awt.Color(236, 236, 236));
+        jLabelTime.setFont(new java.awt.Font("Lucida Bright", 10, 20)); //another font "DS Crystal" 
         jLabelTime.setHorizontalAlignment(0);
        
         jLabelTemp=jLabelPicPart[0][3];//used in operation
@@ -370,7 +366,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Picture Puzzle");
         setResizable(false);
-        setBounds(140, 70, 730, 540);
+        setBounds(140, 70, 760, 570);
         setLayout(null);
         setJMenuBar(jMenubar);
         add(jLabelMain);

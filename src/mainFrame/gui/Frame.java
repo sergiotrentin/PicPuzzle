@@ -150,7 +150,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		//main label
 		jLabelMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainFrame/pictures/others/BackGround" + 
 															(pictureNumber)+".png")));
-        jLabelMain.setBounds(0, 0, 730, 540);
+        jLabelMain.setBounds(0, 0, 760, 570);
         jLabelMain.setLayout(null);
         
         textGame = languageTextSelection(sessao.getLanguage());
@@ -370,7 +370,7 @@ public class Frame extends JFrame  implements Runnable, KeyListener{
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Picture Puzzle");
         setResizable(false);
-        setBounds(140, 70, 730, 540);
+        setBounds(140, 70, 760, 570);
         setLayout(null);
         setJMenuBar(jMenubar);
         add(jLabelMain);
